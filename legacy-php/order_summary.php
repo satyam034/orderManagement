@@ -10,12 +10,12 @@ if (!$order_id) {
 }
 
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, $api . "/orders"); // not direct order fetch - we will GET all then filter
+curl_setopt($ch, CURLOPT_URL, $api . "/orders/" .$order_id ."?flag=1"); // not direct order fetch - we will GET all then filter
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 // For demo: this script expects a JWT in env or a local file for simple admin usage
 $token = getenv('API_TOKEN') ?: '';
 if ($token) {
-  curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer ' . $token));
+  //curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer ' . $token));
 }
 $response = curl_exec($ch);
 $http = curl_getinfo($ch, CURLINFO_HTTP_CODE);
@@ -28,17 +28,12 @@ if ($http != 200) {
 }
 
 $data = json_decode($response, true);
-if (!$data['ok']) {
+if (!isset($data['ok'])) {
   echo "<h3>Error: " . htmlentities(json_encode($data)) . "</h3>";
   exit;
 }
 
-$found = null;
-foreach ($data['orders'] as $o) {
-  if ($o['order_id'] == $order_id) { $found = $o; break; }
-}
-
-if (!$found) {
+if (!isset($data['order'])) {
   echo "<h3>Order not found</h3>";
   exit;
 }
@@ -48,12 +43,12 @@ if (!$found) {
 <html>
 <head>
   <meta charset="utf-8" />
-  <title>Order Summary - <?=htmlspecialchars($found['order_id'])?></title>
+  <title>Order Summary - <?=htmlspecialchars($data['order']['order_id'])?></title>
 </head>
 <body style="font-family: Arial, Helvetica, sans-serif; padding:20px;">
   <h2>Order Summary</h2>
-  <div><strong>Order ID:</strong> <?=htmlspecialchars($found['order_id'])?></div>
-  <div><strong>Amount:</strong> <?=htmlspecialchars($found['amount'])?></div>
-  <div><strong>Created At:</strong> <?=htmlspecialchars($found['created_at'])?></div>
+  <div><strong>Order ID:</strong> <?=htmlspecialchars($data['order']['order_id'])?></div>
+  <div><strong>Amount:</strong> <?=htmlspecialchars($data['order']['amount'])?></div>
+  <div><strong>Created At:</strong> <?=htmlspecialchars($data['order']['created_at'])?></div>
 </body>
 </html>
