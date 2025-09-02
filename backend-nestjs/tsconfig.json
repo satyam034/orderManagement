@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "strict": true,
+    "moduleResolution": "node",
+    "target": "ES2017",
+    "module": "commonjs",
+    "esModuleInterop": true
+  }
+}

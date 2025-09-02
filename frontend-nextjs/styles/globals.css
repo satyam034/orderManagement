@@ -1,0 +1,167 @@
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f0f4f8;
+  color: #333;
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.header {
+  background: #0070f3;
+  color: white;
+  padding: 15px 0;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.footer {
+  margin-top: auto;
+  background: #0070f3;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.card {
+  background: #fff;
+  padding: 30px 20px;
+  margin: 50px auto;
+  max-width: 400px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: 0.3s;
+}
+
+.card h2 {
+  margin-bottom: 20px;
+  color: #0070f3;
+}
+
+input {
+  width: 100%;
+  padding: 12px 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: border 0.3s;
+}
+
+input:focus {
+  outline: none;
+  border-color: #0070f3;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background: #0070f3;
+  color: #fff;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #005bb5;
+}
+
+.message {
+  color: green;
+  margin-bottom: 15px;
+  font-weight: 500;
+}
+
+.order-card {
+  background: #e7f0ff;
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  text-align: left;
+  transition: transform 0.2s;
+}
+
+.order-card:hover {
+  transform: translateY(-2px);
+}
+
+.order-card p {
+  margin: 5px 0;
+  font-size: 15px;
+}
+
+@media (max-width: 480px) {
+  .card {
+    margin: 30px 20px;
+    padding: 20px 15px;
+  }
+
+  input, button {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .order-card {
+    font-size: 14px;
+    padding: 12px;
+  }
+
+  .card h2 {
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .card {
+    margin: 40px 30px;
+    padding: 25px 20px;
+  }
+
+  input, button {
+    font-size: 15px;
+    padding: 11px;
+  }
+
+  .order-card {
+    font-size: 15px;
+    padding: 14px;
+  }
+
+  .card h2 {
+    font-size: 22px;
+  }
+}
+
+@media (min-width: 769px) {
+  .card {
+    max-width: 450px;
+  }
+
+  input, button {
+    font-size: 16px;
+  }
+
+  .card h2 {
+    font-size: 24px;
+  }
+
+  .order-card {
+    font-size: 16px;
+    padding: 16px;
+  }
+}
