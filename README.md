@@ -55,7 +55,7 @@
 ---
 
 ## Setup Instructions
-clone the repository -: 
+clone the repository -: https://github.com/satyam034/orderManagement.git
 ### Backend (NestJS)
 1.make sure before using backend kafka, redis, and mysql is in running state
 2. create tables in database mysql
@@ -77,7 +77,8 @@ order table;
      );
 3. Navigate to backend folder:
    cd backend-nestjs
-2. install dependancy
+4. change the variables in .env (if needed)
+5. install dependancy
    npm install
    npm run start:dev
 now backend is run on http://localhost:3001/
@@ -89,10 +90,18 @@ postman collection -: https://api.postman.com/collections/11075682-b1629f38-02a0
 
 1. Navigate to frontend folder:
    cd frontend-nextjs
-
-2. run command
+2. change the variables in .env.local (if needed)
+3. run command
    npm install
    npm run dev
+
+## run php file for order summary
+1. move to folder
+   cd legacy-php
+2. Start PHP’s built-in server:
+   php -S localhost:8000
+3. open your browser and visit
+   http://localhost:8000/order_summary.php?order_id=1
 
 now your application start and you can use it.
 
