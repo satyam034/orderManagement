@@ -52,5 +52,3 @@ if (!isset($data['order'])) {
   <div><strong>Created At:</strong> <?=htmlspecialchars($data['order']['created_at'])?></div>
 </body>
 </html>
-
-Satyam Bhardwaj
