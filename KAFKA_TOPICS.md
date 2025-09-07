@@ -7,7 +7,3 @@ Topic name -: orders.created
        "amount": 199.99,
        "created_at": "2025-09-02T12:34:56Z"
      }
-
-     satyam bhardwaj
-
-     again vivek pandey
